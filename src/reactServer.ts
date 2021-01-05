@@ -5,7 +5,7 @@ import { unlink, writeFile } from 'fs/promises';
 import { pipeToNodeWritable } from 'react-server-dom-webpack/writer';
 import path from 'path';
 import React from 'react';
-import ReactApp from '../src/App.server';
+import ReactApp from './App.server';
 
 const PORT = 4000;
 const app = express();
@@ -35,6 +35,7 @@ app.get(
       path.resolve(__dirname, '../build/index.html'),
       'utf8',
     );
+
     // Note: this is sending an empty HTML shell, like a client-side-only app.
     // However, the intended solution (which isn't built out yet) is to read
     // from the Server endpoint and turn its response into an HTML stream.
@@ -58,6 +59,7 @@ function sendResponse(req, res, redirectToId) {
     location.selectedId = redirectToId;
   }
   res.set('X-Location', JSON.stringify(location));
+
   renderReactTree(res, {
     selectedId: location.selectedId,
     isEditing: location.isEditing,
