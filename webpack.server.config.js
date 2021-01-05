@@ -3,7 +3,6 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const ReloadServerPlugin = require('./webpack/ReloadServerPlugin');
 const webpack = require('webpack');
-// const ReactServerWebpackPlugin = require('react-server-dom-webpack/plugin');
 
 const cwd = process.cwd();
 
@@ -39,6 +38,22 @@ module.exports = {
         type: 'javascript/auto',
       },
       {
+        test: /\.client.(js|jsx|ts|tsx)?$/,
+        use: [
+          {
+            loader: require.resolve('./plugin/ReactFlightWebpackLoader'),
+          },
+          {
+            loader: 'babel-loader?cacheDirectory',
+          },
+        ],
+        exclude: [
+          /node_modules/,
+          path.resolve(__dirname, '.serverless'),
+          path.resolve(__dirname, '.webpack'),
+        ],
+      },
+      {
         test: /\.(js|jsx|ts|tsx)?$/,
         use: {
           loader: 'babel-loader?cacheDirectory',
@@ -56,8 +71,6 @@ module.exports = {
     new ReloadServerPlugin({
       script: path.resolve('build', filename),
     }),
-    // TODO - implement the server compiler
-    // new ReactServerWebpackPlugin({ isServer: true }),
   ],
   node: {
     __dirname: false,

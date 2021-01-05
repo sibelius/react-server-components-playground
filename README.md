@@ -8,12 +8,43 @@ it is based on [server-components-demo](https://github.com/reactjs/server-compon
 
 ## How to start
 
-Run the Client Bundler
+Run the plugin and loader transpilation using babel
+
 ```bash
-yarn client
+yarn plugin
 ```
 
-Run the Server Bundler
+Run the Client and Server Bundler at the same time
 ```bash
-yarn server
+yarn start
 ```
+
+## Some explanations
+
+[./plugin](./plugin) folder has some copied and modified react-server-dom-webpack files
+
+### ReactFlightWebpackPlugin modifications
+- Be able to have client references using Typescript
+
+## ReactFlightWebpackLoader
+- A loader to be used on the server to transform client references
+- It is similar to ReactFlightWebpackNodeRegister
+- This enable avoiding transpiling on the fly in production
+
+```jsx
+{
+        test: /\.client.(js|jsx|ts|tsx)?$/,
+        use: [{
+          loader: require.resolve('./plugin/ReactFlightWebpackLoader'),
+        }, {
+          loader: 'babel-loader?cacheDirectory',
+        }],
+        exclude: [
+          /node_modules/,
+          path.resolve(__dirname, '.serverless'),
+          path.resolve(__dirname, '.webpack'),
+        ],
+      },
+```
+
+

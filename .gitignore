@@ -30,3 +30,6 @@ yarn-error.log*
 # vscode
 .vscode
 .webpack
+
+# .js is the compiled typescript version
+plugin/*.js
