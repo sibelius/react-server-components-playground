@@ -1,6 +1,6 @@
-# Server Components Boilerplate (Not for Production) 
+# React Server Components Playground (Not for Production) 
 
-This is a React Server Components Boilerplate to make it easy to experiment with using Server Components
+This is a React Server Components Playground to make it easy to experiment with Server Components
 
 it is based on [server-components-demo](https://github.com/reactjs/server-components-demo)
 
