@@ -1,3 +1,5 @@
+**NOT PRODUCTION READY**
+
 # Server Components Boilerplate 
 
 This is a React Server Components Boilerplate to make it easy starting building app using Server Components
