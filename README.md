@@ -12,6 +12,11 @@ As [stated on the React blog](https://reactjs.org/blog/2020/12/21/data-fetching-
 
 This boilerplate **is not** developed by the React team, and **does not** represent how Server Components will actually be integrated by the time they are stable. Instead, the first high-quality integrations will be developed in collaboration with React frameworks.
 
+## Does this solve SSR?
+Not yet, maybe in the future.
+For SSR check this [react-webpack-ssr-boilerplate](react-webpack-ssr-boilerplate), it is the simplest React SSR Boilerplate out there.
+It is just 2 webpack (client and server)
+
 ## How to start
 
 Run the plugin and loader transpilation using babel
