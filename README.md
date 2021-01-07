@@ -14,7 +14,7 @@ This boilerplate **is not** developed by the React team, and **does not** repres
 
 ## Does this solve SSR?
 Not yet, maybe in the future.
-For SSR check this [react-webpack-ssr-boilerplate](react-webpack-ssr-boilerplate), it is the simplest React SSR Boilerplate out there.
+For SSR check this [react-webpack-ssr-boilerplate](https://github.com/sibelius/react-webpack-ssr-boilerplate), it is the simplest React SSR Boilerplate out there.
 It is just 2 webpack (client and server)
 
 ## How to start
